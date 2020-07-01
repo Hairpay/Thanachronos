@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Phantom
+  - hitable
+  - Body
+  - Level
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Environment
+  - Player
+  - Axe
+  - Hitable
+  - ded
+  - LevelHitbox
+  - Grabable
+  - BackgroundParalax
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: SubBackground
+    uniqueID: 2814098005
+    locked: 0
+  - name: Background
+    uniqueID: 896098175
+    locked: 0
+  - name: Ground
+    uniqueID: 3719107265
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Characters
+    uniqueID: 804626995
+    locked: 0
+  - name: Interactables
+    uniqueID: 1499328403
+    locked: 0
+  - name: Foreground
+    uniqueID: 1641505987
+    locked: 0
+  - name: SuperForeground
+    uniqueID: 3928808995
+    locked: 0
+  - name: AvantPlanassets
+    uniqueID: 1129495261
+    locked: 0
+  - name: Fondu
+    uniqueID: 3801268877
+    locked: 0
