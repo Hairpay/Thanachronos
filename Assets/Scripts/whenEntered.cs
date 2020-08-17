@@ -31,5 +31,6 @@ public class whenEntered : MonoBehaviour
         plate.GetComponent<whenEnter>().numberOfActivations = 100;
         GameObject player = GameObject.Find("Char");
         player.GetComponent<PlayerPlatformerController>().inoffensive = false;
+        player.GetComponent<PlayerPlatformerController>().Axevisuel.SetActive(true);
     }
 }

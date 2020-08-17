@@ -22,6 +22,8 @@ public class PlayerPlatformerController : PhysicsObject
     public bool atacCD;
     private bool atacForm;
     public bool inoffensive;
+    public GameObject Axe;
+    public GameObject Axevisuel;
 
     // Use this for initialization
     void Awake()
@@ -34,11 +36,14 @@ public class PlayerPlatformerController : PhysicsObject
     {
         hachepos = hachebox.transform.localPosition;
         layerMask = LayerMask.GetMask("LevelHitbox","Environment");
+        if (inoffensive == true)
+        {
+            Axevisuel.SetActive(false);
+        }
     }
 
     protected override void ComputeVelocity()
-    {
-       
+    {       
         Vector2 move = Vector2.zero;
         move.x = Input.GetAxis("Horizontal") * edgeDelay;
         if (Mathf.Abs(move.x) > 0.2f)
@@ -118,16 +123,19 @@ public class PlayerPlatformerController : PhysicsObject
         if (flipSprite)
         {
             spriteRenderer.flipX = !spriteRenderer.flipX;
+            Axevisuel.GetComponent<SpriteRenderer>().flipX = !Axevisuel.GetComponent<SpriteRenderer>().flipX;
         }
 
         if (spriteRenderer.flipX == true)
         {
             hachebox.transform.localPosition = new Vector2(-hachepos.x, hachepos.y);
+            Axevisuel.transform.localPosition = new Vector2(-Axe.transform.localPosition.x, Axe.transform.localPosition.y);
             playerState = playerState + 10;
         }
         else
         {
             hachebox.transform.localPosition = new Vector2(hachepos.x, hachepos.y);
+            Axevisuel.transform.localPosition = new Vector2(Axe.transform.localPosition.x, Axe.transform.localPosition.y);
         }       
     }
     public void EdgeCheck(float moveX)
@@ -152,6 +160,14 @@ public class PlayerPlatformerController : PhysicsObject
             StartCoroutine(DelayReset());
 
         }    
+    }
+    public void TimeWarpAnimationON()
+    {
+        animator.Play("IdleToWarp");
+    }
+    public void TimeWarpAnimationOFF()
+    {
+        animator.Play("Idle");
     }
     IEnumerator DelayReset()
     {

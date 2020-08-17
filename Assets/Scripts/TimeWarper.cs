@@ -35,6 +35,7 @@ public class TimeWarper : MonoBehaviour
             Time.timeScale = timeScaleMax;
             player.GetComponent<PlayerPlatformerController>().maxSpeed = 0;
             player.GetComponent<PlayerPlatformerController>().jumpTakeOffSpeed = 0;
+            player.GetComponent<PlayerPlatformerController>().TimeWarpAnimationON();
         }
         else if (Input.GetButtonUp("TimeWarp"))
         {
@@ -42,6 +43,7 @@ public class TimeWarper : MonoBehaviour
             Time.timeScale = 1;
             player.GetComponent<PlayerPlatformerController>().maxSpeed = maxbaseSpeed;
             player.GetComponent<PlayerPlatformerController>().jumpTakeOffSpeed = maxbasejump;
+            player.GetComponent<PlayerPlatformerController>().TimeWarpAnimationOFF();
         }
     }
 }

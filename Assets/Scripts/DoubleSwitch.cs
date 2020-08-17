@@ -10,9 +10,8 @@ public class DoubleSwitch : MonoBehaviour
     public float t1;
     public float t2;
 
-
-    private Color green;
-    private Color baseColor;
+    public Sprite offSprite;
+    public Sprite onSprite;
 
     public bool activate1;
     public bool activate2;
@@ -22,16 +21,14 @@ public class DoubleSwitch : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        baseColor = gameObject.GetComponent<SpriteRenderer>().color;
-        baseColor = new Color(baseColor.r, baseColor.g, baseColor.b);
-        green = new Color(0, 255, 0);
+       
     }
     private void Update()
     {
         if (lasthit < gameObject.GetComponent<whenHit>().hit)
         {
             lasthit = gameObject.GetComponent<whenHit>().hit;
-            gameObject.GetComponent<SpriteRenderer>().color = green;
+            gameObject.GetComponent<SpriteRenderer>().sprite = onSprite;
             activate1 = true;
             StopAllCoroutines();
             StartCoroutine(Return1());
@@ -40,7 +37,7 @@ public class DoubleSwitch : MonoBehaviour
         if (lasthit2 < weakbox.GetComponent<whenHit>().hit)
         {
             lasthit2 = weakbox.GetComponent<whenHit>().hit;
-            weakbox.GetComponent<SpriteRenderer>().color = green;
+            weakbox.GetComponent<SpriteRenderer>().sprite = onSprite;
             activate2 = true;
             StopAllCoroutines();
             StartCoroutine(Return2());
@@ -58,14 +55,14 @@ public class DoubleSwitch : MonoBehaviour
     {      
         yield return new WaitForSeconds(2f);
         activate1 = false;
-        gameObject.GetComponent<SpriteRenderer>().color = baseColor;
+        gameObject.GetComponent<SpriteRenderer>().sprite = offSprite;
 
     }
     IEnumerator Return2()
     {
         yield return new WaitForSeconds(2f);
         activate2 = false;
-        weakbox.GetComponent<SpriteRenderer>().color = baseColor;
+        weakbox.GetComponent<SpriteRenderer>().sprite = offSprite;
 
     }
 }

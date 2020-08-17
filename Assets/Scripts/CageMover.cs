@@ -18,6 +18,8 @@ public class CageMover : MonoBehaviour
     public float t;
     public int side = 1;
 
+    public float basePosZ;
+
     public enum Actions
     {
        Apparition,
@@ -71,7 +73,7 @@ public class CageMover : MonoBehaviour
     {
         if (t < 1)
         {
-            gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, Mathf.Lerp(1, 0, t));
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, Mathf.Lerp(basePosZ + 1, basePosZ, t));
             objectColor = Color.Lerp(fadeColor, baseColor, t);
             gameObject.GetComponent<SpriteRenderer>().color = objectColor ;
             t += 0.5f * Time.deltaTime;

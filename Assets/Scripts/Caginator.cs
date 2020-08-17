@@ -26,6 +26,7 @@ public class Caginator : MonoBehaviour
         GameObject newCage = Instantiate(cagesPrefabs[Random.Range(0,cagesPrefabs.Length)]);
         newCage.transform.parent = gameObject.transform;
         newCage.transform.position = gameObject.transform.position;
+        newCage.GetComponent<CageMover>().basePosZ = gameObject.transform.position.z;
         newCage.GetComponent<CageMover>().pointA = gameObject.transform.position;
         newCage.GetComponent<CageMover>().pointB = pointB.transform.position;
 
